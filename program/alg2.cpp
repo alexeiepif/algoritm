@@ -5,7 +5,7 @@
 using namespace std;
 int main()
 {
-    std::ifstream inputFile("program/17.txt");
+    std::ifstream inputFile("/Users/aleksejepifanov/Desktop/пары/пары_3_сем/pytgit/algoritm/program/17.txt");
     std::vector<int> numbers;
     int number;
     int count = 0;
