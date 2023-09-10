@@ -6,9 +6,9 @@ using namespace std;
 template <typename T, size_t N, size_t M>
 void printMatrix(T (&matrix)[N][M])
 {
-    for (int i = 0; i < 15; ++i)
+    for (int i = 0; i < 15; i++)
     {
-        for (int j = 0; j < 15; ++j)
+        for (int j = 0; j < 15; j++)
         {
             std::cout << std::setw(4) << matrix[i][j] << " ";
         }
