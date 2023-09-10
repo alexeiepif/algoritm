@@ -5,7 +5,7 @@
 using namespace std;
 int main()
 {
-    std::ifstream inputFile("/Users/aleksejepifanov/Desktop/пары/пары_3_сем/Algoritm/17.txt");
+    std::ifstream inputFile("program/17.txt");
     std::vector<int> numbers;
     int number;
     int count = 0;
@@ -22,12 +22,13 @@ int main()
         if (numbers[i] % 100 == 15 && numbers[i] > max)
             max = numbers[i];
     }
-    int max_sum = 0;
+    int min_sum = max;
 
     for (int i = 0; i <= (int)numbers.size()-2; i++)
     {
         int c = 0, sum = 0;
         int d[] = {numbers[i], numbers[i + 1], numbers[i + 2]};
+        
         for (int j = 0; j < 3;j++)
         {
             sum+=d[j];
@@ -37,9 +38,9 @@ int main()
         if(c==1 && sum<max)
         {
             count++;
-            if(sum>max_sum)
-                max_sum = sum;
+            if(sum<min_sum)
+                min_sum = sum;
         }
     }
-    cout << count << "    " << max_sum << endl;
+    cout << count << "    " << min_sum << endl;
 }
