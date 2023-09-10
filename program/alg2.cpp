@@ -9,7 +9,7 @@ int main()
     std::vector<int> numbers;
     int number;
     int count = 0;
-    
+
     while (inputFile >> number)
     {
         numbers.push_back(number);
@@ -24,21 +24,21 @@ int main()
     }
     int min_sum = max;
 
-    for (int i = 0; i <= (int)numbers.size()-2; i++)
+    for (int i = 0; i <= (int)numbers.size() - 2; i++)
     {
         int c = 0, sum = 0;
         int d[] = {numbers[i], numbers[i + 1], numbers[i + 2]};
-        
-        for (int j = 0; j < 3;j++)
+
+        for (int j = 0; j < 3; j++)
         {
-            sum+=d[j];
-            if(abs(d[j]) > 999 && abs(d[j]) < 10000)
-            c++;
+            sum += d[j];
+            if (abs(d[j]) > 999 && abs(d[j]) < 10000)
+                c++;
         }
-        if(c==1 && sum<max)
+        if (c == 1 && sum < max)
         {
             count++;
-            if(sum<min_sum)
+            if (sum < min_sum)
                 min_sum = sum;
         }
     }

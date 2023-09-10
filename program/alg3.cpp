@@ -3,18 +3,21 @@
 #include <iomanip>
 #include <algorithm>
 using namespace std;
-template<typename T, size_t N, size_t M>
-void printMatrix(T (&matrix)[N][M]) {
-    for (int i = 0; i < 15; ++i) {
-        for (int j = 0; j < 15; ++j) {
-            std::cout<< std::setw(4) << matrix[i][j] << " ";
+template <typename T, size_t N, size_t M>
+void printMatrix(T (&matrix)[N][M])
+{
+    for (int i = 0; i < 15; ++i)
+    {
+        for (int j = 0; j < 15; ++j)
+        {
+            std::cout << std::setw(4) << matrix[i][j] << " ";
         }
         std::cout << std::endl;
     }
 }
 int main()
 {
-    vector<vector<int> > matrix = {
+    vector<vector<int>> matrix = {
         {12, 88, 57, 63, 77, 70, 6, 98, 65, 58, 19, 73, 13, 86, 1},
         {12, 66, 3, 14, 36, 65, 51, 4, 45, 78, 12, 31, 91, 12, 86},
         {61, 41, 46, 70, 39, 7, 76, 23, 3, 4, 62, 75, 63, 65, 54},
@@ -34,19 +37,19 @@ int main()
     newmatrix[14][0] = 21;
     for (int i = 13; i >= 0; i--)
     {
-        newmatrix[i][0] = newmatrix[i+1][0] + ((matrix[i][0] > matrix[i + 1][0])? matrix[i][0] : 0);
+        newmatrix[i][0] = newmatrix[i + 1][0] + ((matrix[i][0] > matrix[i + 1][0]) ? matrix[i][0] : 0);
     }
     for (int j = 1; j <= 14; j++)
     {
-        newmatrix[14][j] = newmatrix[14][j-1] + ((matrix[14][j] > matrix[14][j-1])? matrix[14][j] : 0);
+        newmatrix[14][j] = newmatrix[14][j - 1] + ((matrix[14][j] > matrix[14][j - 1]) ? matrix[14][j] : 0);
     }
     for (int i = 13; i >= 0; i--)
     {
         for (int j = 1; j <= 14; j++)
         {
-            int a = newmatrix[i+1][j] + ((matrix[i][j] > matrix[i + 1][j])? matrix[i][j] : 0);
-            int b = newmatrix[i][j-1] + ((matrix[i][j] > matrix[i][j-1])? matrix[i][j] : 0);
-            newmatrix[i][j] = max(a,b);
+            int a = newmatrix[i + 1][j] + ((matrix[i][j] > matrix[i + 1][j]) ? matrix[i][j] : 0);
+            int b = newmatrix[i][j - 1] + ((matrix[i][j] > matrix[i][j - 1]) ? matrix[i][j] : 0);
+            newmatrix[i][j] = max(a, b);
         }
     }
     printMatrix(newmatrix);
